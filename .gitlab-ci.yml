@@ -10,5 +10,5 @@ flake8:
 black:
   stage: linting
   image: registry.gitlab.com/pipeline-components/black:latest
-  scripts: 
+  script: 
     - black --check --verbose --line-length 79 --diff --skip-string-normalization -- .
