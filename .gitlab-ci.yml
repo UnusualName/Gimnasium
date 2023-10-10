@@ -7,8 +7,8 @@ flake8:
   script:
     - flake8 --verbose .
   
-  black:
-    stage: linting
-    image: registry.gitlab.com/pipeline-components/black:latest
-    scripts: 
-      -black --chech --verbose --line-length 79 --skip-string-normalization -- .
+black:
+  stage: linting
+  image: registry.gitlab.com/pipeline-components/black:latest
+  scripts: 
+    -black --chech --verbose --line-length 79 --skip-string-normalization -- .
