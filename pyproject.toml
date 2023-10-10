@@ -2,8 +2,3 @@
 line-length = 79
 target-version = ['py37', 'py310', 'py311']
 skip-string-normalization = true
-
-[flake8]
-max-complexity = 10
-inline-quotes = "'"
-max-line-length = 79
