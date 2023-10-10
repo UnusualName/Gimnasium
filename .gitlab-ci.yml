@@ -2,19 +2,17 @@ default:
   image: python:3.9
 
 stages:
-  - lint
+  - linting
 
  before_script:
    - pip install flake8
 
 flake8:
-  stage: lint
+  stage: linting
   script:
-    - python --version
-    - pip install flake8
-    - flake8 src/
+    - flake8 --verbose .
   
-  black_check:
-    stage: lint
+  black:
+    stage: linting
     scripts: 
-      -black --chech --config pyproject.toml .
+      -black --chech --verbose --line-length 79 --skip-string-normalization -- .

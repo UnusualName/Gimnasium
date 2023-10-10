@@ -1,11 +1,19 @@
+# VENV
+'''bash
 python -m venv venv
-
-# For Windows
-venv\Scripts\activate
-
-# For OSX and Linux
+venv/bin/activate
 source venv/bin/activate
-
-
+'''
+# REQUIREMENTS
+'''bash
 pip install -r requirements.txt
-python lyceum\manage.py startserver
+'''
+
+# VENV VARIABLES
+'''bash
+cp config.env .env
+
+# LAUNCH
+'''bash
+python manage.py runserver
+'''
