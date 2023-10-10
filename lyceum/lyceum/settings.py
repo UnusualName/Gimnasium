@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,10 @@ SECRET_KEY = "FAKE_SECRET_KEY"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+DEBUG_ENV = os.getenv('DJANGO_DEBUG', 'true').lower()
+DEBUG = DEBUG_ENV in ['true', 'yes', 'l', 'y', 't']
+
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(",")
 
 
 # Application definition
@@ -84,8 +88,23 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-
+AUTH_PASSWORD_VALIDATORS = AUTH_PASSWORD_VALIDATORS = [
+    {
+        "NAME": ('django.contrib.auth.password_validation'
+                 '.UserAttributeSimilarityValidator'),
+    },
+    {
+        "NAME": ('django.contrib.auth.password_validation'
+                 '.MinimumLengthValidator'),
+    },
+    {
+        "NAME": ('django.contrib.auth.password_validation'
+        '.CommonPasswordValidator'),
+    },
+    {
+        "NAME": ('django.contrib.auth.password_validation'
+                 '.NumericPasswordValidator'),
+    },
 ]
 
 
