@@ -15,8 +15,7 @@ flake8:
     - python --version
     - pip install flake8
     - flake8 src/
-  only:
-    - merge_requests
+
 
 
 test:
