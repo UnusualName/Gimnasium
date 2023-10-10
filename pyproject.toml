@@ -1,0 +1,9 @@
+[tool.black]
+line-length = 80
+target-version = ['py37', 'py310', 'py311']
+
+[flake8]
+max-complexity = 10
+inline quotes = "
+max-line-length = 79
+black-config = .black
