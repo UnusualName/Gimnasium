@@ -1,3 +1,6 @@
+# PIPELINE
+![pipeline](https://gitlab.crja72.ru/django_2023/students/149036-ars.plmr-gmail.com-47230/badges/main/pipeline.svg)
+
 # VENV
 """bash
 python -m venv venv
