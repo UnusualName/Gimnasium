@@ -11,4 +11,4 @@ black:
   stage: linting
   image: registry.gitlab.com/pipeline-components/black:latest
   scripts: 
-    -black --chech --verbose --line-length 79 --skip-string-normalization -- .
+    -black --chech --verbose --line-length 79 --diff --skip-string-normalization -- .
