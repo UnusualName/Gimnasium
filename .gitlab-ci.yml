@@ -13,13 +13,12 @@ black:
   stage: linting
   image: registry.gitlab.com/pipeline-components/black:latest
   script: 
-    - pip install -r requirements/test.txt
+    - pip install -r requirements/dev.txt
     - black --check --verbose --diff --line-length 79 .
 
 django-test:
   stage: testing
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "push"
   script:
+    - pip install -r requirements/prod
     - cd lyceum
     - python3 manage.py test
