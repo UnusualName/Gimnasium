@@ -21,4 +21,5 @@ django-test:
   rules:
     - if: $CI_PIPELINE_SOURCE == "push"
   script:
+    - cd lyceum
     - python3 manage.py test
