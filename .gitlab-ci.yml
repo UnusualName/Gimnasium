@@ -18,5 +18,7 @@ black:
 
 django-test:
   stage: testing
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
   script:
     - python3 manage.py test
