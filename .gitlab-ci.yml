@@ -12,4 +12,5 @@ black:
   stage: linting
   image: registry.gitlab.com/pipeline-components/black:latest
   script: 
+    - pip install -r requirements/test.txt
     - black --check --verbose --diff --line-length 79 .
