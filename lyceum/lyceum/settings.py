@@ -34,9 +34,9 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",")
 # Application definition
 
 INSTALLED_APPS = [
-    "about.apps.aboutConfig",
-    "homepage.apps.homepageConfig",
-    "catalog.apps.catalogConfig",
+    "about.apps.AboutConfig",
+    "homepage.apps.HomepageConfig",
+    "catalog.apps.CatalogConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
