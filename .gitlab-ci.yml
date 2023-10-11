@@ -12,4 +12,4 @@ black:
   stage: linting
   image: registry.gitlab.com/pipeline-components/black:latest
   script: 
-    - black --check --verbose --line-length 79 .
+    - black --check --verbose --diff --line-length 79 .
