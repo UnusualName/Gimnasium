@@ -19,6 +19,6 @@ black:
 django-test:
   stage: testing
   script:
-    - pip install -r requirements/prod
+    - pip install -r requirements/prod.txt
     - cd lyceum
     - python3 manage.py test
