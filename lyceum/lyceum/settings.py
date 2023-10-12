@@ -34,6 +34,15 @@ DEBUG = DEBUG_ENV in ["true", "yes", "y", "t"]
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
+ALLOW_REVERSE = os.getenv("DJANGO_ALLOW_REVERSE", "True") in [
+    "",
+    "true",
+    "True",
+    "yes",
+    "YES",
+    "1",
+    "y",
+]
 
 # Application definition
 
@@ -59,6 +68,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "lyceum.middleware.SimpleMiddleware",
 ]
 
 INTERNAL_IPS = ["127.0.0.1"]
@@ -144,3 +154,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+times = 0

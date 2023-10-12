@@ -15,10 +15,3 @@ class StaticUrlTests(TestCase):
     def test_coffee_httpstatus_endpoint(self):
         response = Client().get("/coffee/")
         self.assertEqual(response.status_code, HTTPStatus.IM_A_TEAPOT)
-
-    def test_coffee_text_endpoint(self):
-        response = Client().get("/coffee/")
-        self.assertEqual(
-            response.content,
-            "Я чайник".encode(),
-        )
