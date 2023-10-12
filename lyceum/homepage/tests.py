@@ -15,7 +15,6 @@ class StaticUrlTests(TestCase):
         self.assertEqual(
             response.content,
             (
-                "<body>\xd0\xaf \xd1\x87\xd0\xb0\xd0"
-                "\xb9\xd0\xbd\xd0\xb8\xd0\xba</body>"
+                b"\xd0\xaf \xd1\x87\xd0\xb0\xd0\xb9\xd0\xbd\xd0\xb8\xd0\xba"
             ),
         )

@@ -24,4 +24,4 @@ class StaticUrlTests(TestCase):
 
     def test_catalog_converter_text_endpoint(self):
         response = Client().get("/catalog/re/12r34/")
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 404)
