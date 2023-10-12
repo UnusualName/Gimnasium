@@ -9,4 +9,4 @@ urlpatterns = [
     path("<int:item_n>/", views.item_detail),
     re_path(r"^re/(?P<regular_n>[+]?\d+)/$", views.catalog_regular),
     path("converter/<n_converter:n>/", views.catalog_converter),
-    ]
+]
