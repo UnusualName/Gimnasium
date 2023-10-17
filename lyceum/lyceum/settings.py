@@ -47,9 +47,6 @@ ALLOW_REVERSE = os.getenv("DJANGO_ALLOW_REVERSE", "True") in [
 # Application definition
 
 INSTALLED_APPS = [
-    "about.apps.AboutConfig",
-    "homepage.apps.HomepageConfig",
-    "catalog.apps.CatalogConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -57,6 +54,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "about.apps.AboutConfig",
+    "catalog.apps.CatalogConfig",
+    "homepage.apps.HomepageConfig",
 ]
 
 MIDDLEWARE = [

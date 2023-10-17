@@ -1,32 +1,36 @@
-# PIPELINE
+## PIPELINE
+# Чтобы на сайте проекта было красиво
 ![pipeline](https://gitlab.crja72.ru/django_2023/students/149036-ars.plmr-gmail.com-47230/badges/main/pipeline.svg)
 
-# VENV
-"""bash
+## VENV 
+# Создаём и активируем
+```bash
 python -m venv venv
 venv/bin/activate
 source venv/bin/activate
-"""
-# REQUIREMENTS
-"""bash
+```
+## REQUIREMENTS
+# Те, что z
+```bash
 pip install -r requirements/prod.txt
-"""
+```
 # FOR DEVELOPMENT
-"""bash
+```bash
 pip install -r requirements/dev.txt
-"""
+```
 
 # FOR TESTING
-"""bash
+```bash
 pip install -r requirements/test.txt
-"""
+```
 
-# VENV VARIABLES
+## VENV VARIABLES
 Скопируйте файл "config.env"  в ".env", если нужно, отредактируйте значения переменных
-"""bash
+```bash
 cp config.env .env
+```
 
-# LAUNCH
-"""bash
+## LAUNCH
+```bash
 python manage.py runserver
-"""
+```
