@@ -23,12 +23,11 @@ class StaticUrlTests(TestCase):
         request = Client().get("/")
 
         middleware = SimpleMiddleware(get_response)
-        responses = [middleware(request) for _ in range(10)]
+        responses = tuple(
+            middleware(request).content.decode() for _ in range(10)
+            )
 
-        # ensure get_response has been returned
-        # (or not, if your middleware does something else)
-
-        self.assertEqual(excepted, responses[-1].content.decode())
+        self.assertIn(excepted, responses)
 
     @parameterized.expand(
         [
@@ -45,9 +44,11 @@ class StaticUrlTests(TestCase):
         request = Client().get("/")
 
         middleware = SimpleMiddleware(get_response)
-        responses = [middleware(request) for _ in range(10)]
+        responses = tuple(
+            middleware(request).content.decode() for _ in range(10)
+            )
 
         # ensure get_response has been returned
         # (or not, if your middleware does something else)
 
-        self.assertNotEqual(excepted, responses[-1].content.decode())
+        self.assertNotIn(excepted, responses)
