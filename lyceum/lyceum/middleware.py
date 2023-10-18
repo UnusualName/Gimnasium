@@ -21,7 +21,6 @@ class SimpleMiddleware:
         return False
 
     def __call__(self, request):
-
         response = self.get_response(request)
 
         if self.check_reverse():

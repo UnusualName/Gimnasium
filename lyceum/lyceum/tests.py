@@ -25,7 +25,7 @@ class StaticUrlTests(TestCase):
         middleware = SimpleMiddleware(get_response)
         responses = tuple(
             middleware(request).content.decode() for _ in range(10)
-            )
+        )
 
         self.assertIn(excepted, responses)
 
@@ -46,7 +46,7 @@ class StaticUrlTests(TestCase):
         middleware = SimpleMiddleware(get_response)
         responses = tuple(
             middleware(request).content.decode() for _ in range(10)
-            )
+        )
 
         # ensure get_response has been returned
         # (or not, if your middleware does something else)
