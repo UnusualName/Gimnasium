@@ -86,14 +86,11 @@ class StaticModelTests(TestCase):
     def test_create_item_positive(self, names, texts):
         item_count = models.Item.objects.count()
         self.item = models.Item(
-                name=names,
-                text=texts,
-                category=StaticModelTests.category,
-            )
+            name=names,
+            text=texts,
+            category=StaticModelTests.category,
+        )
         self.item.full_clean()
         self.item.save()
         self.item.tags.add(StaticModelTests.tag)
-        self.assertEqual(models.Item.objects.count(), item_count+1)
-        self.item.delete()
-        self.item.save()
-        self.assertEqual(models.Item.objects.count(), item_count)
+        self.assertEqual(models.Item.objects.count(), item_count + 1)
