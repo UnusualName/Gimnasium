@@ -1,3 +1,5 @@
+import re
+
 from core.models import CatalogAbstraction, CatalogClassificationAbstraction
 import django.core
 from django.core.exceptions import ValidationError
@@ -5,7 +7,7 @@ import django.db
 
 
 def validate_perfection(value):
-    if not ("превосходно" in value.lower() or "роскошно" in value.lower()):
+    if not re.search(r"\bпревосходно\b|\bроскошно\b", value.lower()):
         raise ValidationError((f"There is no perfection in {value}"))
 
 

@@ -80,7 +80,7 @@ class StaticModelTests(TestCase):
             ("test-name", "Превосходно"),
             ("0", "Восхитительно и Превосходно"),
             ("0", "Не только превосходно"),
-            ("0", "ПреПреПревосходно"),
+            ("0", "ПреПре?Превосходно"),
         ]
     )
     def test_create_item_positive(self, names, texts):
