@@ -13,7 +13,10 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name="category",
-            options={"verbose_name": "category", "verbose_name_plural": "categories"},
+            options={
+                "verbose_name": "category",
+                "verbose_name_plural": "categories",
+            },
         ),
         migrations.AlterModelOptions(
             name="item",
@@ -26,13 +29,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="category",
             name="is_published",
-            field=models.BooleanField(default=True, verbose_name="is_published"),
+            field=models.BooleanField(
+                default=True, verbose_name="is_published"
+            ),
         ),
         migrations.AlterField(
             model_name="category",
             name="name",
             field=models.CharField(
-                help_text="Максимум 150 символов", max_length=150, verbose_name="name"
+                help_text="Максимум 150 символов",
+                max_length=150,
+                verbose_name="name",
             ),
         ),
         migrations.AlterField(
@@ -42,7 +49,9 @@ class Migration(migrations.Migration):
                 unique=True,
                 validators=[
                     django.core.validators.MaxLengthValidator(200),
-                    django.core.validators.RegexValidator(regex="[-a-zA-Z\\d_]+"),
+                    django.core.validators.RegexValidator(
+                        regex="[-a-zA-Z\\d_]+"
+                    ),
                 ],
                 verbose_name="slag",
             ),
@@ -62,13 +71,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="item",
             name="is_published",
-            field=models.BooleanField(default=True, verbose_name="is_published"),
+            field=models.BooleanField(
+                default=True, verbose_name="is_published"
+            ),
         ),
         migrations.AlterField(
             model_name="item",
             name="name",
             field=models.CharField(
-                help_text="Максимум 150 символов", max_length=150, verbose_name="name"
+                help_text="Максимум 150 символов",
+                max_length=150,
+                verbose_name="name",
             ),
         ),
         migrations.AlterField(
@@ -83,13 +96,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="tag",
             name="is_published",
-            field=models.BooleanField(default=True, verbose_name="is_published"),
+            field=models.BooleanField(
+                default=True, verbose_name="is_published"
+            ),
         ),
         migrations.AlterField(
             model_name="tag",
             name="name",
             field=models.CharField(
-                help_text="Максимум 150 символов", max_length=150, verbose_name="name"
+                help_text="Максимум 150 символов",
+                max_length=150,
+                verbose_name="name",
             ),
         ),
         migrations.AlterField(
@@ -99,7 +116,9 @@ class Migration(migrations.Migration):
                 unique=True,
                 validators=[
                     django.core.validators.MaxLengthValidator(200),
-                    django.core.validators.RegexValidator(regex="[-a-zA-Z\\d_]+"),
+                    django.core.validators.RegexValidator(
+                        regex="[-a-zA-Z\\d_]+"
+                    ),
                 ],
                 verbose_name="slag",
             ),
