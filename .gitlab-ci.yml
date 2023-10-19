@@ -20,10 +20,10 @@ black:
 sqlite3:
   stage: migration
   script:
-    cd lyceum
-    python3 manage.py makemigrations
-    python3 manage.py migrate
-    cd ../
+    - cd lyceum
+    - python3 manage.py makemigrations
+    - python3 manage.py migrate
+    - cd ../
 
 django-test:
   stage: testing
