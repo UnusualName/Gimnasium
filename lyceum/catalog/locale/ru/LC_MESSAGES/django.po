@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-19 17:25+0500\n"
+"POT-Creation-Date: 2023-10-20 01:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,37 +20,37 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 #: .\apps.py:8
-msgid "Catalog"
-msgstr "Каталог"
+msgid "catalog"
+msgstr "каталог"
 
 #: .\models.py:18
-msgid "Tag"
-msgstr "Тег"
+msgid "tag"
+msgstr "тег"
 
 #: .\models.py:19
-msgid "Tags"
-msgstr "Теги"
+msgid "tags"
+msgstr "теги"
 
 #: .\models.py:29
-msgid "Weight"
-msgstr "Вес"
+msgid "weight"
+msgstr "вес"
 
 #: .\models.py:33
-msgid "Category"
-msgstr "Категория"
+msgid "category"
+msgstr "категория"
 
 #: .\models.py:34
-msgid "Categories"
-msgstr "Категории"
+msgid "categories"
+msgstr "категории"
 
 #: .\models.py:39
-msgid "Text"
-msgstr "Текст"
+msgid "text"
+msgstr "текст"
 
 #: .\models.py:55
-msgid "Item"
-msgstr "Товар"
+msgid "item"
+msgstr "товар"
 
 #: .\models.py:56
-msgid "Items"
-msgstr "Товары"
+msgid "items"
+msgstr "товары"
