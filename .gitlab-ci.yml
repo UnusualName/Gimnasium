@@ -1,6 +1,6 @@
 stages:
   - linting
-  - mifration
+  - migration
   - testing
 
 flake8:
@@ -21,7 +21,9 @@ sqlite3:
   stage: migration
   script:
     cd lyceum
+    python3 manage.py makemigrations
     python3 manage.py migrate
+    cd ../
 
 django-test:
   stage: testing

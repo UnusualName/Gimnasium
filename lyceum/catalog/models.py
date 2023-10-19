@@ -3,6 +3,7 @@ import re
 import django.core
 from django.core.exceptions import ValidationError
 import django.db
+from django.utils.translation import gettext_lazy as _
 
 from core.models import CatalogAbstraction, CatalogClassificationAbstraction
 
@@ -14,8 +15,8 @@ def validate_perfection(value):
 
 class Tag(CatalogClassificationAbstraction):
     class Meta:
-        verbose_name = "Тег"
-        verbose_name_plural = "Теги"
+        verbose_name = _("Tag")
+        verbose_name_plural = _("Tags")
 
 
 class Category(CatalogClassificationAbstraction):
@@ -25,17 +26,17 @@ class Category(CatalogClassificationAbstraction):
             django.core.validators.MaxValueValidator(32767),
             django.core.validators.MinValueValidator(1),
         ],
-        verbose_name="Вес",
+        verbose_name=_("Weight"),
     )
 
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
 
 
 class Item(CatalogAbstraction):
     text = django.db.models.TextField(
-        verbose_name="Текст",
+        verbose_name=_("Text"),
         help_text=(
             "Должно содержать по крайней мере одно слово "
             "'Превосходно' или 'Роскошно'"
@@ -51,5 +52,5 @@ class Item(CatalogAbstraction):
     )
 
     class Meta:
-        verbose_name = "Товар"
-        verbose_name_plural = "Товары"
+        verbose_name = _("Item")
+        verbose_name_plural = _("Items")
