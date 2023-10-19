@@ -1,9 +1,10 @@
 import re
 
-from core.models import CatalogAbstraction, CatalogClassificationAbstraction
 import django.core
 from django.core.exceptions import ValidationError
 import django.db
+
+from core.models import CatalogAbstraction, CatalogClassificationAbstraction
 
 
 def validate_perfection(value):
@@ -22,7 +23,7 @@ class Category(CatalogClassificationAbstraction):
         default=100,
         validators=[
             django.core.validators.MaxValueValidator(32767),
-            django.core.validators.MinValueValidator(0),
+            django.core.validators.MinValueValidator(1),
         ],
         verbose_name="Вес",
     )
