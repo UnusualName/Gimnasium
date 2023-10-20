@@ -17,9 +17,12 @@ class ValidateMustContain:
         self.words = args
 
     def __call__(self, value):
+        perfection = False
         for word in self.words:
-            if not re.search(f"\b{word.lower()}\b", value.lower()):
-                raise ValidationError((f"There is no perfection in {value}"))
+            if re.search(r"\b{word}\b".format(word=word), value.lower()):
+                perfection = True
+        if not perfection:
+            raise ValidationError((f"There is no perfection in {value}"))
 
     def __eq__(self, other):
         return (
