@@ -10,7 +10,7 @@ venv/bin/activate
 source venv/bin/activate
 ```
 ## REQUIREMENTS
-# Те, что z
+# FOR DEPLOING
 ```bash
 pip install -r requirements/prod.txt
 ```
@@ -34,3 +34,7 @@ cp config.env .env
 ```bash
 python manage.py runserver
 ```
+
+## DATABASE
+Структура базы данных отображена в файле ER.jpg в корне проекта
+![alt text](ER.jpg)
