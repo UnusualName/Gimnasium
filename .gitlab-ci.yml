@@ -1,6 +1,5 @@
 stages:
   - linting
-  - migration
   - testing
 
 flake8:
@@ -16,14 +15,6 @@ black:
   script: 
     - pip install -r requirements/test.txt
     - black --check --verbose --diff --line-length 79 .
-
-sqlite3:
-  stage: migration
-  script:
-    - cd lyceum
-    - python3 manage.py makemigrations
-    - python3 manage.py migrate
-    - cd ../
 
 django-test:
   stage: testing
