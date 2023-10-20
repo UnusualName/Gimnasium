@@ -54,3 +54,15 @@ msgstr "товар"
 #: .\models.py:56
 msgid "items"
 msgstr "товары"
+
+# ..\core\models.py:8
+msgid "is_published"
+msgstr "опубликовано"
+
+# ..\core\models.py:11
+msgid "name"
+msgstr "название"
+
+# ..\core\models.py:8
+msgid "slag"
+msgstr "слаг"

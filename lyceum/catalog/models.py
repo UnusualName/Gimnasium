@@ -43,12 +43,16 @@ class Item(CatalogAbstraction):
         ),
         validators=[validate_perfection],
     )
-    tags = django.db.models.ManyToManyField(Tag)
+    tags = django.db.models.ManyToManyField(
+        Tag,
+        verbose_name=_("tags")
+    )
     category = django.db.models.ForeignKey(
         "category",
         on_delete=django.db.models.CASCADE,
         related_name="item_category",
         help_text="Выберите категорию",
+        verbose_name=_("category")
     )
 
     class Meta:
