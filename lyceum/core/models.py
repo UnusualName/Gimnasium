@@ -1,14 +1,13 @@
 import django.db
-from django.utils.translation import gettext_lazy as _
 
 
 class CatalogAbstraction(django.db.models.Model):
     id = django.db.models.BigAutoField(primary_key=True, verbose_name="id")
     is_published = django.db.models.BooleanField(
-        default=True, verbose_name=_("is_published")
+        default=True, verbose_name=("опубликовано")
     )
     name = django.db.models.CharField(
-        verbose_name=_("name"),
+        verbose_name=("название"),
         max_length=150,
         help_text="Максимум 150 символов",
     )
@@ -23,7 +22,7 @@ class CatalogAbstraction(django.db.models.Model):
 class CatalogClassificationAbstraction(CatalogAbstraction):
     slug = django.db.models.TextField(
         unique=True,
-        verbose_name=_("slag"),
+        verbose_name=("слаг"),
         validators=[
             django.core.validators.MaxLengthValidator(200),
             django.core.validators.RegexValidator(regex=r"[-a-zA-Z\d_]+"),

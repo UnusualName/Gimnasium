@@ -3,7 +3,6 @@ import re
 import django.core
 from django.core.exceptions import ValidationError
 import django.db
-from django.utils.translation import gettext_lazy as _
 
 from core.models import CatalogAbstraction, CatalogClassificationAbstraction
 
@@ -15,8 +14,8 @@ def validate_perfection(value):
 
 class Tag(CatalogClassificationAbstraction):
     class Meta:
-        verbose_name = _("tag")
-        verbose_name_plural = _("tags")
+        verbose_name = "тег"
+        verbose_name_plural = "теги"
 
 
 class Category(CatalogClassificationAbstraction):
@@ -26,32 +25,32 @@ class Category(CatalogClassificationAbstraction):
             django.core.validators.MaxValueValidator(32767),
             django.core.validators.MinValueValidator(1),
         ],
-        verbose_name=_("weight"),
+        verbose_name=("вес"),
     )
 
     class Meta:
-        verbose_name = _("category")
-        verbose_name_plural = _("categories")
+        verbose_name = "категория"
+        verbose_name_plural = "категории"
 
 
 class Item(CatalogAbstraction):
     text = django.db.models.TextField(
-        verbose_name=_("text"),
+        verbose_name=("текст"),
         help_text=(
             "Должно содержать по крайней мере одно слово "
             "'Превосходно' или 'Роскошно'"
         ),
         validators=[validate_perfection],
     )
-    tags = django.db.models.ManyToManyField(Tag, verbose_name=_("tags"))
+    tags = django.db.models.ManyToManyField(Tag, verbose_name=("tags"))
     category = django.db.models.ForeignKey(
         "category",
         on_delete=django.db.models.CASCADE,
         related_name="item_category",
         help_text="Выберите категорию",
-        verbose_name=_("category"),
+        verbose_name=("категория"),
     )
 
     class Meta:
-        verbose_name = _("item")
-        verbose_name_plural = _("items")
+        verbose_name = "товар"
+        verbose_name_plural = "товары"
