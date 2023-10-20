@@ -4,7 +4,7 @@ import django.core
 from django.core.exceptions import ValidationError
 import django.db
 
-from core.models import CatalogAbstraction, CatalogClassificationAbstraction
+from core.models import CatalogAbstraction
 
 
 def validate_perfection(value):
@@ -12,13 +12,30 @@ def validate_perfection(value):
         raise ValidationError((f"There is no perfection in {value}"))
 
 
-class Tag(CatalogClassificationAbstraction):
+class Tag(CatalogAbstraction):
+    slug = django.db.models.TextField(
+        unique=True,
+        verbose_name=("слаг"),
+        validators=[
+            django.core.validators.MaxLengthValidator(200),
+            django.core.validators.RegexValidator(regex=r"[-a-zA-Z\d_]+"),
+        ],
+    )
+
     class Meta:
         verbose_name = "тег"
         verbose_name_plural = "теги"
 
 
-class Category(CatalogClassificationAbstraction):
+class Category(CatalogAbstraction):
+    slug = django.db.models.TextField(
+        unique=True,
+        verbose_name=("слаг"),
+        validators=[
+            django.core.validators.MaxLengthValidator(200),
+            django.core.validators.RegexValidator(regex=r"[-a-zA-Z\d_]+"),
+        ],
+    )
     weight = django.db.models.IntegerField(
         default=100,
         validators=[
