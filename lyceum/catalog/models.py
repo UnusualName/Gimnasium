@@ -3,13 +3,29 @@ import re
 import django.core
 from django.core.exceptions import ValidationError
 import django.db
+from django.utils.deconstruct import deconstructible
+
 
 from core.models import CatalogAbstraction
 
 
-def validate_perfection(value):
-    if not re.search(r"\bпревосходно\b|\bроскошно\b", value.lower()):
-        raise ValidationError((f"There is no perfection in {value}"))
+@deconstructible
+class ValidateMustContain:
+    words = []
+
+    def __init__(self, *args):
+        self.words = args
+
+    def __call__(self, value):
+        for word in self.words:
+            if not re.search(f"\b{word.lower()}\b", value.lower()):
+                raise ValidationError((f"There is no perfection in {value}"))
+
+    def __eq__(self, other):
+        return (
+            isinstance(other, ValidateMustContain)
+            and self.words == other.words
+        )
 
 
 class Tag(CatalogAbstraction):
@@ -57,7 +73,7 @@ class Item(CatalogAbstraction):
             "Должно содержать по крайней мере одно слово "
             "'Превосходно' или 'Роскошно'"
         ),
-        validators=[validate_perfection],
+        validators=[ValidateMustContain("превосходно", "роскошно")],
     )
     tags = django.db.models.ManyToManyField(Tag, verbose_name=("теги"))
     category = django.db.models.ForeignKey(
