@@ -42,7 +42,7 @@ class Item(CatalogAbstraction):
         ),
         validators=[validate_perfection],
     )
-    tags = django.db.models.ManyToManyField(Tag, verbose_name=("tags"))
+    tags = django.db.models.ManyToManyField(Tag, verbose_name=("теги"))
     category = django.db.models.ForeignKey(
         "category",
         on_delete=django.db.models.CASCADE,
