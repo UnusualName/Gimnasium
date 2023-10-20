@@ -7,6 +7,7 @@ class CatalogAbstraction(django.db.models.Model):
         default=True, verbose_name=("опубликовано")
     )
     name = django.db.models.CharField(
+        unique=True,
         verbose_name=("название"),
         max_length=150,
         help_text="Максимум 150 символов",
